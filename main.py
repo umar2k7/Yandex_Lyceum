@@ -27,7 +27,7 @@ class Example(QMainWindow):
         if self.flag:
             qp = QPainter()
             qp.begin(self)
-            qp.setBrush(QColor(255, 255, 0))
+            qp.setBrush(QColor(randint(0, 255), randint(0, 255), randint(0, 255)))
             # self.x, self.y = SCREEN_SIZE[0] // 2 - self.side // 2, SCREEN_SIZE[1] - self.side - 20
             self.drawSquare(qp)
             qp.end()
