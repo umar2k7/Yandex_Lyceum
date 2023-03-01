@@ -14,24 +14,34 @@
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QPushButton" name="pushButton">
+   <widget class="QPushButton" name="app">
     <property name="geometry">
      <rect>
-      <x>290</x>
-      <y>480</y>
-      <width>201</width>
-      <height>91</height>
+      <x>610</x>
+      <y>520</y>
+      <width>171</width>
+      <height>51</height>
      </rect>
     </property>
     <property name="font">
      <font>
-      <pointsize>45</pointsize>
+      <pointsize>27</pointsize>
       <weight>75</weight>
       <bold>true</bold>
      </font>
     </property>
     <property name="text">
-     <string>DRAW</string>
+     <string>Append</string>
+    </property>
+   </widget>
+   <widget class="QTableWidget" name="tableWidget">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>20</y>
+      <width>761</width>
+      <height>481</height>
+     </rect>
     </property>
    </widget>
   </widget>
