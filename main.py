@@ -74,7 +74,6 @@ class MainWindow(QtWidgets.QMainWindow):
             # print(self.name_coffe_lineEdit.text(), self.roast_lineEdit.text(), self.ground_lineEdit.text())
             # print(self.textEdit.toPlainText(), int(self.price_lineEdit.text()), int(self.lineEdit_5.text()))
             last_id = cursor.execute(f"""SELECT id FROM coffee""").fetchall()[-1][0]
-            print(last_id)
             cursor.execute(f'''INSERT INTO coffee(id, name, roast, ground, description, price, volume)
                             VALUES ({last_id + 1}, '{self.name_coffe_lineEdit.text()}', '{self.roast_lineEdit.text()}',
                             '{self.ground_lineEdit.text()}', '{self.textEdit.toPlainText()}',
