@@ -9,12 +9,12 @@ class MainWindow(QtWidgets.QMainWindow):
         self.main()
 
     def main(self):
-        uic.loadUi('UI.ui', self)
+        uic.loadUi('UI/UI.ui', self)
         self.app.clicked.connect(self.open_update_win)
         self.load_data()
 
     def load_data(self):
-        conn = sqlite3.connect('coffee.sqlite')
+        conn = sqlite3.connect('data/coffee.sqlite')
         cursor = conn.cursor()
         cursor.execute('SELECT * FROM coffee')
         result = cursor.fetchall()
@@ -36,7 +36,7 @@ class MainWindow(QtWidgets.QMainWindow):
         conn.close()
 
     def open_update_win(self, arg=False):
-        uic.loadUi('addEditCoffeeForm.ui', self)
+        uic.loadUi('UI/addEditCoffeeForm.ui', self)
         self.pushButton_2.clicked.connect(self.main)
         if arg:
             self.pushButton_3.show()
@@ -58,7 +58,7 @@ class MainWindow(QtWidgets.QMainWindow):
         item = self.tableWidget.item(row, 0)
         # print(item.text())
         self.id = item.text()
-        conn = sqlite3.connect('coffee.sqlite')
+        conn = sqlite3.connect('data/coffee.sqlite')
         cursor = conn.cursor()
         cursor.execute(f'SELECT * FROM coffee WHERE id == {self.id}')
         result = cursor.fetchall()[0]
@@ -66,7 +66,7 @@ class MainWindow(QtWidgets.QMainWindow):
         self.open_update_win(arg=result)
 
     def save(self, new=False, de=False):
-        con = sqlite3.connect('coffee.sqlite')
+        con = sqlite3.connect('data/coffee.sqlite')
         cursor = con.cursor()
         if de:
             cursor.execute(f"""DELETE FROM coffee WHERE id == {self.id}""")
